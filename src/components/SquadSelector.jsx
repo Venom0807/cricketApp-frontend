@@ -13,7 +13,7 @@ export default function SquadSelector({ match, onClose }) {
 
   useEffect(() => {
     const load = async () => {
-      const res = await api.get('/team/members');
+      const res = await api.get('team/members');
       setMembers(res.data || []);
     };
     load();
@@ -37,7 +37,7 @@ export default function SquadSelector({ match, onClose }) {
       return;
     }
     setSaving(true);
-    await api.put(`/matches/${match._id}/squad`, { playingXI: selected });
+    await api.put(`matches/${match._id}/squad`, { playingXI: selected });
     setSaving(false);
     onClose && onClose();
   };

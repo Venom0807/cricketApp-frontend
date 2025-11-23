@@ -11,14 +11,14 @@ export default function PlayerDashboard() {
 
   useEffect(() => {
     const load = async () => {
-      const res = await api.get('/matches/upcoming');
+      const res = await api.get('matches/upcoming');
       setUpcoming(res.data);
     };
     load();
   }, []);
 
   const viewAll = async () => {
-    const res = await api.get('/matches/all');
+    const res = await api.get('matches/all');
     setAll(res.data || []);
     setShowAll(true);
   };

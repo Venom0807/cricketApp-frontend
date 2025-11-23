@@ -15,7 +15,7 @@ export default function Login() {
     setLoading(true);
     setError('');
     try {
-      const res = await api.post('/auth/login', { email, password });
+      const res = await api.post('auth/login', { email, password });
       setAuth(res.data.token, res.data.user);
       if (res.data.user.role === 'captain') navigate('/captain');
       else navigate('/player');

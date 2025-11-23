@@ -15,10 +15,10 @@ export default function MatchForm({ onCreated, existing }) {
     setError('');
     try {
       if (existing) {
-        const res = await api.put(`/matches/${existing._id}`, { opponentName, venue, matchDate, notes });
+        const res = await api.put(`matches/${existing._id}`, { opponentName, venue, matchDate, notes });
         onCreated && onCreated(res.data);
       } else {
-        const res = await api.post('/matches', { opponentName, venue, matchDate, notes });
+        const res = await api.post('matches', { opponentName, venue, matchDate, notes });
         onCreated && onCreated(res.data);
         setOpponentName('');
         setVenue('');

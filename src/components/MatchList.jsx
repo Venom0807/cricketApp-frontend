@@ -11,7 +11,7 @@ export default function MatchList() {
   const load = async () => {
     setLoading(true);
     try {
-      const res = await api.get('/matches/all');
+      const res = await api.get('matches/all');
       setMatches(res.data || []);
     } finally {
       setLoading(false);
@@ -21,7 +21,7 @@ export default function MatchList() {
   useEffect(() => { load(); }, []);
 
   const onDelete = async (id) => {
-    await api.delete(`/matches/${id}`);
+    await api.delete(`matches/${id}`);
     load();
   };
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: 'http://localhost:5000/api' });
+const api = axios.create({ baseURL: 'https://cricketapp1-51wc3mm0.b4a.run/' });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');

@@ -14,7 +14,7 @@ export default function CaptainDashboard() {
   const [password, setPassword] = useState('');
 
   const loadMembers = async () => {
-    const res = await api.get('/team/members');
+    const res = await api.get('team/members');
     setMembers(res.data || []);
   };
 
@@ -22,7 +22,7 @@ export default function CaptainDashboard() {
 
   const addMember = async (e) => {
     e.preventDefault();
-    await api.post('/team/members', { name, email, password });
+    await api.post('team/members', { name, email, password });
     setName('');
     setEmail('');
     setPassword('');
@@ -30,7 +30,7 @@ export default function CaptainDashboard() {
   };
 
   const deleteMember = async (id) => {
-    await api.delete(`/team/members/${id}`);
+    await api.delete(`team/members/${id}`);
     loadMembers();
   };
 

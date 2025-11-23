@@ -12,11 +12,11 @@ export default function TeamPlayingXI({ editable = false }) {
   const [error, setError] = useState('');
 
   const load = async () => {
-    const xiRes = await api.get('/team/playingxi');
+    const xiRes = await api.get('team/playingxi');
     setPlayingXI(xiRes.data || []);
     setSelected((xiRes.data || []).map((p) => p._id));
     if (editable) {
-      const memRes = await api.get('/team/members');
+      const memRes = await api.get('team/members');
       setMembers(memRes.data || []);
     }
   };
@@ -41,7 +41,7 @@ export default function TeamPlayingXI({ editable = false }) {
       return;
     }
     setSaving(true);
-    await api.put('/team/playingxi', { playingXI: selected });
+    await api.put('team/playingxi', { playingXI: selected });
     setSaving(false);
     load();
   };
